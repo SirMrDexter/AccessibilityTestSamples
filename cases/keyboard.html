@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Accessibility Test Cases - Keyboard</title>
+        <meta name="description" content="Accessibility Testcases">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="../css/normalize.css">
+        <link rel="stylesheet" href="../css/main.css">
+    </head>
+    <body>
+        <h1>Keyboard</h1>
+		<section>
+			<p>Elements linked with UI event should also be given keyboard alternatives</p>
+			<p class="negative">The link below can be clicked with mouse to open the feedback form. But is not keyboard accessible.</p>
+			<div>
+				<a href="#" id="clickLink2">Click here to provide feedback</a>
+				<div id="feedback2" style="display:none;">
+					<label for="feedbackArea2">Feedback text</label><br/>
+					<textarea col="30" rows="6" id="feedbackArea2"></textarea><br/>
+					<input type="submit" value="Submit"/>
+				</div>
+			</div>
+			<p class="positive">The link below can be clicked with both mouse and keyboard.</p>
+			<div>
+				<a href="#" onclick="return openDiv('feedback1');">Click here to provide feedback</a>
+				<div id="feedback1" style="display:none;">
+					<label for="feedbackArea1">Feedback text</label><br/>
+					<textarea col="30" rows="6" id="feedbackArea1"></textarea><br/>
+					<input type="submit" value="Submit"/>
+				</div>
+			</div>
+		</section>
+		<section>
+			<p>Say no to keyboard traps</p>
+			<p class="negative">Once tabbed into this section users cannot tab out</p>
+			<div class="tabtrap">
+				Lorem ipsum dolor sit amet, consectetur <a href="#">adipiscing</a> elit. Ut lacinia scelerisque metus eget ullamcorper. Mauris euismod tellus ut ligula mollis pellentesque. In <a href="#">lectus</a> odio, vestibulum sollicitudin luctus ut, auctor malesuada metus. Pellentesque odio odio, egestas sit amet egestas sit amet, laoreet eget arcu. Integer a <a href="#">sollicitudin</a> ligula. Suspendisse egestas dolor nec ligula pellentesque dictum. Donec sit amet augue felis. Pellentesque sodales felis non luctus adipiscing. Mauris luctus nunc ac <a href="#">tortor</a> laoreet lobortis. Duis porttitor rhoncus sapien, id <a href="#">feugiat</a> tortor lobortis eget.
+			</div>
+			<p class="position">Once tabbed into this section users cannot tab out. Users are provided with instructions on how to exit the trab</p>
+			<div class="tabtrap-with-exit">
+				Lorem ipsum dolor sit amet, consectetur <a href="#">adipiscing</a> elit. Ut lacinia scelerisque metus eget ullamcorper. Mauris euismod tellus ut ligula mollis pellentesque. In <a href="#">lectus</a> odio, vestibulum sollicitudin luctus ut, auctor malesuada metus. Pellentesque odio odio, egestas sit amet egestas sit amet, laoreet eget arcu. Integer a <a href="#">sollicitudin</a> ligula. Suspendisse egestas dolor nec ligula pellentesque dictum. Donec sit amet augue felis. Pellentesque sodales felis non luctus adipiscing. Mauris luctus nunc ac <a href="#">tortor</a> laoreet lobortis. Duis porttitor rhoncus sapien, id <a href="#" class="exit">Press 'e' here to exit the trap</a> tortor lobortis eget. <a href="#">feugiat</a>
+			</div>
+			<div tabindex="0">You have successfully exited from the tab trap.</div>
+		</section>
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+        <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.10.2.min.js"><\/script>')</script>
+		<script>
+			function openDiv(id){
+				document.getElementById(id).style.display="block";
+				return false;
+			}
+			
+			$(function(){
+				$('#clickLink2').mousedown(function(event){
+					openDiv('feedback2');
+					event.preventDefault();
+				});
+				
+				$('.tabtrap a:last-child').blur(function(event){
+					$('.tabtrap a:first-child').focus();
+					event.preventDefault();
+				});
+				
+				$('.tabtrap-with-exit a:last-child').blur(function(event){
+					$('.tabtrap-with-exit a:first-child').focus();
+					event.preventDefault();
+				});
+				
+				$('.tabtrap-with-exit a.exit').keyup(function(e){
+					console.log(e.which);
+					if(e.which == 69) {
+						$('.tabtrap-with-exit').next().focus();
+					}
+				});
+			});
+		</script>
+    </body>
+</html>

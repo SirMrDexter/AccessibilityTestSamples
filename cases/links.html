@@ -1,19 +1,35 @@
 <!DOCTYPE html>
-<html class="no-js">
+<html class="no-js" lang="en">
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>Accessibility Test cases - Verify Alt text</title>
+        <title>Accessibility Test Cases - Links</title>
         <meta name="description" content="Accessibility Testcases">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="../css/normalize.css">
         <link rel="stylesheet" href="../css/main.css">
+		<style type="text/css">
+			.p1 a { color:#222; text-decoration:none; }
+			.p2 a { text-decoration:none;  }
+			.p3 a { outline:none; }
+			.p4 a:hover { text-decoration:none; }
+		</style>
     </head>
     <body>
         <h1>Links</h1>
-        <p class="negative">Links text for this link is not descriptive enough.</p>
+		<p class="positive">First focusable link in the page should be a skip to main content link.</p>
+		<a href="#content">Skip to main content</a>
+        <p class="negative" id="content">Links text for this link is not descriptive enough.</p>
         <p>Click <a href="#">here</a> to proceed.</p>
         <p class="positive">Links text for this link is descriptive.</p>
         <p><a href="#">Click here to proceed.</a></p>
+		<p class="negative">Links in the block of text is not highlighted</p>
+		<p class="p1">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut lacinia scelerisque metus eget ullamcorper. Mauris euismod tellus ut ligula mollis pellentesque. In <a href="#">lectus</a> odio, vestibulum sollicitudin luctus ut, auctor malesuada metus. Pellentesque odio odio, egestas sit amet egestas sit amet, laoreet eget arcu. Integer a <a href="#">sollicitudin</a> ligula. Suspendisse egestas dolor nec ligula pellentesque dictum. Donec sit amet augue felis. Pellentesque sodales felis non luctus adipiscing. Mauris luctus nunc ac <a href="#">tortor</a> laoreet lobortis. Duis porttitor rhoncus sapien, id feugiat tortor lobortis eget.</p>
+		<p class="negative">Links in block of text below are highlighted with color. But no decorations.</p>
+		<p class="p2">Nullam sollicitudin dictum sem, nec interdum ante. Duis tortor lacus, scelerisque nec elementum sit amet, <a href="#">malesuada</a. a magna. Donec pretium ipsum sit amet tellus pellentesque, eu vulputate magna lobortis. Donec sed lobortis ipsum. <a href="#">Aenean ac condimentum</a> ligula, et venenatis nibh. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Morbi eu orci nec eros <a href="#">posuere</a> consequat egestas in erat. Quisque eu tempor felis. Phasellus condimentum sodales tellus quis lacinia. Etiam luctus dui dolor, vitae consequat sem elementum vel.</p>
+		<p class="negative">Links in block of text below are highlighted with color and decorations, but no difference on hover/focus.</p>
+		<p class="p3">Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Vestibulum felis ante, pharetra a nunc eu, <a href="#">malesuada</a> venenatis odio. Nulla eu placerat tortor. Morbi sagittis pharetra mauris et posuere. Donec eget suscipit lectus, nec pulvinar diam. Duis aliquam urna quis dolor <a href="#">pellentesque</a>, id tincidunt turpis congue. Cras nisi est, pharetra quis tempus ac, pretium in sapien. Nunc lacinia lorem lorem, id ultrices mi rutrum ut. Nunc vitae nulla eget <a href="#">quam condimentum</a> cursus quis sit amet purus.</p>
+		<p class="positive">Links in block of text below are highlighted with color and decorations.</p>
+		<p class="p4">Pellentesque ultrices, libero sed dictum pretium, nulla sapien eleifend diam, ac malesuada lacus risus nec velit. Vestibulum non sollicitudin tellus. Sed <a href="#">varius erat elit</a>, nec molestie mi accumsan quis. Cras et bibendum dolor, tempus tristique lacus. Nulla facilisi. Nullam at turpis a justo sollicitudin molestie sed sed nunc. Mauris <a href="#">id fringilla</a> nisl, in consectetur nulla. Sed sed lacus tortor. Proin dictum tortor nisl, non venenatis nisl faucibus et. Praesent nec dolor sed turpis rhoncus pellentesque iaculis id sem. <a href="#">Donec</a> at velit est.</p>
     </body>
 </html>
