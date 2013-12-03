@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html class="no-js">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Accessibility Test cases - Verify Alt text</title>
+        <meta name="description" content="Accessibility Testcases">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="../css/normalize.css">
+        <link rel="stylesheet" href="../css/main.css">
+        <script>
+            function toggleDescription() {
+                document.getElementById('hiddenSpan').style.display = 'inline';
+                document.getElementById('hiddenSpan').focus();
+                return false;
+            }
+        </script>
+    </head>
+    <body>
+        <h1>Verify Alt text</h1>
+        <p class="positive">Media with a descriptive text.</p>
+        <iframe width="560" height="315" src="//www.youtube.com/embed/PAzY2MQxJDQ" frameborder="0" allowfullscreen></iframe>
+        <p>A description of the content in the media goes here. A description of the content in the media goes here. A description of the content in the media goes here. A description of the content in the media goes here.</p>
+        <p class="positive">Media with descriptive text, visually hidden.</p>
+        <iframe width="560" height="315" src="//www.youtube.com/embed/PAzY2MQxJDQ" frameborder="0" allowfullscreen></iframe>
+        <p class="visuallyhidden">A description of the content in the media goes here. A description of the content in the media goes here. A description of the content in the media goes here. A description of the content in the media goes here.</p>
+        <p class="positive">Media with text, hidden from user but made visible on click and focused.</p>
+        <iframe width="560" height="315" src="//www.youtube.com/embed/PAzY2MQxJDQ" frameborder="0" allowfullscreen></iframe>
+        <p>
+            <a href="#" onclick="return toggleDescription();">Click here to view video transcripts</a>
+            <span tabindex="0" id="hiddenSpan" style="display:none;">A description of the content in the media goes here. A description of the content in the media goes here. A description of the content in the media goes here. A description of the content in the media goes here.</span>
+        </p>
+    </body>
+</html>
