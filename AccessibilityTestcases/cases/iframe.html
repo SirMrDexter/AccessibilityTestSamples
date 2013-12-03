@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html class="no-js">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Accessibility Test cases - Verify Alt text</title>
+        <meta name="description" content="Accessibility Testcases">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="../css/normalize.css">
+        <link rel="stylesheet" href="../css/main.css">
+    </head>
+    <body>
+        <h1>IFrames</h1>
+        <p class="negative">An iframe with no scrollbar</p>
+        <p><iframe height="400" width="400" src="iframe-content.html" scrolling="no"></iframe></p>
+        <p class="positive">An iframe with scrolling set to auto, so it appears when the content doesn't fit the available area.</p>
+        <p><iframe height="600" width="400" src="iframe-content.html" scrolling="auto"> </iframe><iframe height="600" width="800" src="iframe-content.html" scrolling="auto"></iframe></p>
+    </body>
+</html>

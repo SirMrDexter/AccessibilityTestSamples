@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html class="no-js">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Accessibility Test cases - Verify Alt text</title>
+        <meta name="description" content="Accessibility Testcases">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="../css/normalize.css">
+        <link rel="stylesheet" href="../css/main.css">
+        <style type="text/css">
+            .correct-ul, .incorrect-ul { list-style:none;padding:0;margin:0; }
+            .correct-ul:after, .incorrect-ul:after { content:' '; display:block; clear:both; }
+            .correct-ul li, .incorrect-ul li { padding:5px;border:1px solid; margin:5px; }
+            .correct-ul {text-align:right;}
+            .correct-ul li {text-align:left;display:inline-block;}
+            .incorrect-ul li {float:right;}
+        </style>
+    </head>
+    <body>
+        <h1>Page structure</h1>
+        <p class="positive">Page structure is maintained after styles are turned off.</p>
+        <ul class="correct-ul">
+            <li>Step 1: This is step 1</li><li>Step 2: This is step 2</li><li>Step 3: This is step 3</li><li>Step 4: This is step 4</li>
+        </ul>
+        <p class="negative">Page structure is not maintained after styles are turned off.</p>
+        <ul class="incorrect-ul">
+            <li>Step 4: This is step 4</li>
+            <li>Step 3: This is step 3</li>
+            <li>Step 2: This is step 2</li>
+            <li>Step 1: This is step 1</li>
+        </ul>
+    </body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html class="no-js">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Accessibility Test cases - Verify Alt text</title>
+        <meta name="description" content="Accessibility Testcases">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="../css/normalize.css">
+        <link rel="stylesheet" href="../css/main.css">
+    </head>
+    <body>
+        <h1>Form Fields</h1>
+        <form>
+            <p class="positive">Below field has proper label</p>
+            <p><label for="text1">Name</label><input id="text1" type="text" /></p>
+            <p class="positive">This elements label is hidden from view. But is available for screen readers to read.</p>
+            <p><label for="text4" class="visuallyhidden">Name</label><input id="text4" type="text" /></p>
+            <p class="negative">This elements label is hidden from view and is not available for screen readers to read.</p>
+            <p><label for="text5" class="hidden">Age</label><input id="text5" type="text" /></p>
+            <p class="negative">This elements does not have a label/title.</p>
+            <p><input id="text6" type="text" /></p>
+            <p class="negative">This elements does not have a label/title and does not satisfy the requirement even though it has a placeholder attribute.</p>
+            <p><input id="text7" placeholder="phone" type="text" /></p>
+            <p class="positive">This elements does not have a label, but is compensated by the presence of a title.</p>
+            <p><input id="text2" type="text" title="Phone" /></p>
+            <p class="positive">Buttons with proper description as value</p>
+            <p><input type="button" value="Search" /> <input type="button" value="Go" /> <input type="button" value="Submit" /> <input type="button" value="Cancel" /></p>
+            <p class="negative">Buttons without proper description as value</p>
+            <p><input type="button" value="button" /> <input type="button" value="" /></p>
+            <p class="negative">Image button which uses a image to display the text. But its value is empty.</p>
+            <p><input type="image" src="../img/imagebutton.jpg" value="" /></p>
+            <p class="positive">Image button which uses a image to display the text. Its value is empty, but it has title attribute to satisfy the screen reader requirements.</p>
+            <p><input type="image" src="../img/imagebutton.jpg" title="Search" /></p>
+        </form>
+    </body>
+</html>
